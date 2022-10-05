@@ -5,7 +5,7 @@
     --yellow: hsl(51, 100%, 49%);
     --dark-desaturated-cyan: hsl(167, 40%, 24%);
     --dark-blue: hsl(198, 62%, 26%);
-    --dark-moderate-cyan: hsl(168, 33%, 52%);
+    --dark-moderate-cyan: hsl(168, 40%, 57%);
 
     --vd-desaturated-blue: hsl(212, 27%, 19%);
     --vd-grayish-blue: hsl(213, 9%, 39%);
@@ -95,7 +95,8 @@ header{
 }
 
 .mobile-nav{
-    position: absolute;
+    display: block;
+    position: fixed;
     left: 100%;
     width: 90%;
     margin: 0 5%;
@@ -104,6 +105,17 @@ header{
     text-align: center;
     transition: all .3s;
 }
+/* .mobile-nav::before{
+    content: "";
+    margin-left: auto;
+    position: relative;
+    top: -1.5rem;
+    border-width: 0 0 1.5rem 1.5rem;
+    border-style: solid;
+    border-color: var(--clr-white) transparent;
+    display: block;
+    width: 0;
+} */
 .nav-links{
     display: flex;
     flex-direction: column;
@@ -146,7 +158,7 @@ header{
 .transform-img{
     background: url(../images/mobile/image-transform.jpg) center no-repeat;
     background-size: cover;
-    height: 40vh;
+    height: 19.5rem;
 }
 .transform-texts,
 .standout-texts{
@@ -157,9 +169,14 @@ header{
 .grid-img-text h2{
     font-size: 1.85em;
 }
+.grid-img-text p{
+    line-height: 1.6em;
+}
 .transform-texts p,
 .standout-texts p{
     margin: 20px 0 40px;
+    max-width: 350px;
+    margin: 20px auto 40px;
 }
 .transform-texts .learn-more{
     background: hsl(51, 100%, 49%, 0.3);
@@ -172,7 +189,7 @@ header{
 .standout-img{
     background: url(../images/mobile/image-stand-out.jpg) center top no-repeat;
     background-size: cover;
-    height: 40vh;
+    height: 19.5rem;
 }
 .standout-texts .learn-more{
     background: hsl(7, 99%, 70%, 0.3);
@@ -284,10 +301,121 @@ footer{
     .gallery-images-desktop{
         display: initial;
     }
+
+    header{
+        background: url(../images/desktop/image-header.jpg) center bottom no-repeat ;
+        background-size: cover;
+        height: 650px;
+    }
+    .navbar-desktop{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px;
+    }
+    .navbar-desktop .links{
+        display: flex;
+        align-items: center;
+    }
+    .navbar-desktop .links li{
+        margin: 0 10px;
+        font-weight: 400;
+    }
+    .navbar-desktop .links a{
+        color: var(--white);
+        font-size: .85em;
+        font-weight: 400;
+        font-family: var(--ff-barlow);
+    }
+    .navbar-desktop .links button{
+        padding: 10px 20px;
+        background: var(--white);
+        color: initial;
+        border: none;
+        border-radius: 20px;
+    }
+    .navbar-desktop .links button:hover{
+        background: var(--dark-blue);
+        color: var(--white);
+    }
+
+    .illustration-text h1{
+        margin: 50px auto 80px; 
+    }
+
+    .grid-img-text{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-img-text > div{
+        height: 520px;
+        background-size: cover;
+    }
+    .grid-img-text h2{
+        font-size: 1.95em;
+        font-weight: 900;
+    }
+    .learn-more{
+        margin: 0;
+    }
+    .transform-texts,
+    .standout-texts{
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        padding: 0 100px;
+        background: var(--white);
+    }
+    
+    .transform-texts h2,
+    .standout-texts h2{
+        width: 80%;
+    }
+    .transform-texts p,
+    .standout-texts p{
+        margin: 20px 0 40px;
+    }
+    .transform-img{
+        background: url('../images/desktop/image-transform.jpg') center no-repeat;
+    }
+    .standout-img{
+        background: url('../images/desktop/image-stand-out.jpg') center center no-repeat;
+    }
+    .graphics-designer{
+        padding-top: 340px;
+        background: url('../images/desktop/image-graphic-design.jpg') top no-repeat;
+    }    
+    .photography{
+        padding-top: 340px;
+        background: url('../images/desktop/image-photography.jpg') top no-repeat;
+    }
+    
+    .graphics-designer p,
+    .photography p{
+        margin: 20px auto;
+        max-width: 400px;
+    }
+
+    .gallery-images-desktop{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .gallery-images-desktop img{
+        max-width: 100%;
+    }
+
+    .footer-links a:hover{
+        color: var(--white);
+    }
+    .footer-icons img:hover{
+        cursor: pointer;
+        filter: brightness(100);
+    }
 }
 
 
-@media (min-width: 460px) {
+@media (min-width: 460px) and (max-width: 749px) {
     .graphics-designer{
         background: url(../images/mobile/image-graphic-design.jpg) center no-repeat;
     }    
